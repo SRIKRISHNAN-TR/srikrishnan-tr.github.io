@@ -1,0 +1,782 @@
+/* ==========================================================================
+   SRIKRISHNAN TR — PORTFOLIO STYLESHEET
+   Extracted verbatim from Canva Code export. Comments added for navigation.
+   Do NOT change colours, spacing, or animation values without updating both
+   the corresponding section in index.html and the DESIGN SYSTEM notes in
+   README.md.
+   ==========================================================================
+
+   TABLE OF CONTENTS
+   -----------------
+   1.  CSS Custom Properties (Design Tokens)
+   2.  Reset & Base
+   3.  Utilities (site-width, micro, section-space, display, body-copy)
+   4.  Section Theming (dark / light / white)
+   5.  Navigation
+   6.  Hero Section
+   7.  Ribbon Decoration
+   8.  Corner Strip
+   9.  About Section
+   10. Skills Section
+   11. Projects Section
+   12. Experience / Timeline Section
+   13. Certifications Section
+   14. Contact Section
+   15. Footer
+   16. Reveal Animation
+   17. Keyframes
+   18. Responsive Breakpoints
+   19. Reduced-Motion Override
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (Design Tokens)
+   --------------------------------------------------------------------------
+   Palette: black-and-white ONLY. Do not introduce any other hue.
+   --black  : page background, dark sections
+   --white  : text on dark, solid button fill
+   --paper  : light-section background (#f0f0f0)
+   --muted  : secondary text on dark (#a0a0a0)
+   --grey   : borders and secondary text on light (#505050)
+   -------------------------------------------------------------------------- */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --paper: #f0f0f0;
+  --muted: #a0a0a0;
+  --grey:  #505050;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  font-family: Montserrat, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+a, button { -webkit-tap-highlight-color: transparent; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+::selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* --------------------------------------------------------------------------
+   3. Utilities
+   -------------------------------------------------------------------------- */
+
+/* Centred column: full-bleed up to 1440 px with 32 px side gutters */
+.site-width {
+  width: min(100% - 64px, 1440px);
+  margin-inline: auto;
+}
+
+/* Label / eyebrow text */
+.micro {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* Standard section vertical padding */
+.section-space { padding-block: 112px 120px; }
+
+/* Big display headings — weight 800, all-caps, tight tracking */
+.display {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -.09em;
+  line-height: .91;
+  overflow-wrap: anywhere;
+}
+
+/* Section title size (About → Contact headings) */
+.section-title { font-size: clamp(56px, 10.5vw, 160px); }
+
+/* Body copy */
+.body-copy {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.85;
+}
+
+/* --------------------------------------------------------------------------
+   4. Section Theming
+   -------------------------------------------------------------------------- */
+.dark-section  { color: var(--white); background: var(--black); }
+.light-section { color: var(--black); background: var(--paper); }
+.white-section { color: var(--black); background: var(--white); }
+
+.muted-on-dark  { color: var(--muted); }
+.muted-on-light { color: var(--grey);  }
+
+/* --------------------------------------------------------------------------
+   5. Navigation
+   -------------------------------------------------------------------------- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--black);
+  transition: background .3s, backdrop-filter .3s, border-color .3s;
+  border-bottom: 1px solid transparent;
+}
+
+/* Scroll state: slight transparency + blur + visible border */
+.site-nav.scrolled {
+  background: rgba(0, 0, 0, .88);
+  backdrop-filter: blur(18px);
+  border-color: var(--grey);
+}
+
+.nav-inner {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Round monogram badge */
+.monogram {
+  width: 45px;
+  height: 45px;
+  border: 1.5px solid var(--white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -.09em;
+  flex: none;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 2vw, 32px);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: .13em;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  padding-block: 7px;
+}
+
+/* Slide-in underline on hover / focus */
+.nav-links a::after,
+.contact-link::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.contact-link:hover::after,
+.contact-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: calc(90 * min(var(--vh, 1vh), 1vh));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: 55px;
+}
+
+.hero-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* Giant "KRIS" headline */
+.hero-title {
+  font-size: clamp(110px, 25vw, 410px);
+  white-space: nowrap;
+  margin: 26px 0 8px;
+  letter-spacing: -.115em;
+  line-height: .78;
+}
+
+/* Each letter animates in with a stagger */
+.hero-title span                   { display: inline-block; animation: riseIn .9s both; }
+.hero-title span:nth-child(2)      { animation-delay: .1s; }
+.hero-title span:nth-child(3)      { animation-delay: .2s; }
+.hero-title span:nth-child(4)      { animation-delay: .3s; }
+
+.hero-bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 42px;
+}
+
+.hero-subline {
+  font-size: clamp(18px, 2.4vw, 34px);
+  letter-spacing: -.045em;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.action-button {
+  min-height: 51px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 13px 20px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  border: 1px solid var(--white);
+  transition: transform .25s, background .25s, color .25s;
+}
+
+.action-button:hover { transform: translateY(-3px); }
+
+.button-solid               { background: var(--white); color: var(--black); }
+.button-solid:hover         { background: var(--paper); }
+.button-outline             { background: transparent;  color: var(--white); }
+.button-outline:hover       { background: var(--white); color: var(--black); }
+
+/* --------------------------------------------------------------------------
+   7. Ribbon Decoration
+   SVG greyscale ribbon — absolute positioned, floats with CSS animation,
+   scrolls via --ribbon-y CSS variable set from JS.
+   -------------------------------------------------------------------------- */
+.ribbon {
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+  width: min(95vw, 1150px);
+  height: auto;
+  right: -15%;
+  top: 5%;
+  opacity: .4;
+  animation: ribbonFloat 12s ease-in-out infinite alternate, ribbonAppear 1.8s both;
+  transform: translate3d(0, var(--ribbon-y, 0px), 0);
+  transition: transform .15s linear;
+}
+
+.ribbon svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   8. Corner Strip (three-column meta bar at bottom of hero)
+   -------------------------------------------------------------------------- */
+.corner-strip {
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid var(--grey);
+  padding: 16px 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.corner-strip span:nth-child(2) { text-align: center; }
+.corner-strip span:nth-child(3) { text-align: right;  }
+
+/* --------------------------------------------------------------------------
+   9. About Section
+   -------------------------------------------------------------------------- */
+.section-heading { margin: 17px 0 44px; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(35px, 7vw, 110px);
+  align-items: start;
+}
+
+.about-intro { max-width: 740px; }
+
+.about-detail {
+  border-top: 1px solid var(--muted);
+  padding-top: 17px;
+  margin-top: 25px;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.about-detail strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* 2×2 stat boxes */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  padding: 24px 18px;
+  min-height: 125px;
+  border: 1px solid var(--muted);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-number {
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.08em;
+}
+
+/* Profile photo slot */
+.photo-slot {
+  margin-top: 12px;
+  min-height: 165px;
+  border: 1px dashed var(--grey);
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.profile-photo {
+  width: 100%;
+  max-width: 220px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(1);
+  transition: transform 1.2s cubic-bezier(.22, 1, .36, 1), filter 1.2s ease;
+}
+
+.profile-photo-slot:hover .profile-photo {
+  transform: scale(1.035);
+  filter: grayscale(.75);
+}
+
+.photo-slot .slot-mark {
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -.1em;
+}
+
+/* --------------------------------------------------------------------------
+   10. Skills Section
+   -------------------------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 48px;
+}
+
+.skill-group {
+  padding: 22px 0 27px;
+  border-top: 1px solid var(--grey);
+}
+
+.skill-group h3 {
+  margin: 0 0 15px;
+  font-size: clamp(18px, 2vw, 25px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+/* Tag pills */
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.tag {
+  border: 1px solid var(--grey);
+  border-radius: 100px;
+  padding: 7px 12px;
+  color: var(--paper);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   11. Projects Section
+   -------------------------------------------------------------------------- */
+.project-list { display: grid; gap: 12px; }
+
+.project-card {
+  border: 1px solid var(--muted);
+  padding: clamp(23px, 3.5vw, 48px);
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 10px 25px;
+  background: var(--paper);
+  transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--black);
+  box-shadow: 8px 8px 0 var(--black);
+}
+
+.project-number { font-size: 14px; font-weight: 800; }
+
+.project-title {
+  font-size: clamp(25px, 3vw, 44px);
+  font-weight: 800;
+  letter-spacing: -.065em;
+  line-height: 1.1;
+  margin: 0 0 15px;
+}
+
+.project-desc {
+  max-width: 880px;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 22px;
+}
+
+/* Override tag colour inside project cards (light background) */
+.project-card .tag { color: var(--black); border-color: var(--muted); }
+
+.project-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 23px;
+}
+
+.project-actions a {
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: .08em;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 4px;
+}
+
+.project-actions a:hover { color: var(--grey); }
+
+.project-arrow {
+  margin-left: auto;
+  font-size: 28px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity .25s, transform .25s;
+}
+
+.project-card:hover .project-arrow,
+.project-card:focus-within .project-arrow {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   12. Experience / Timeline Section
+   -------------------------------------------------------------------------- */
+.timeline {
+  border-left: 1px solid var(--grey);
+  margin-left: 9px;
+  padding-left: clamp(25px, 4vw, 60px);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 49px;
+  max-width: 900px;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+/* Dot on the timeline line */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: calc(-1 * clamp(25px, 4vw, 60px) - 5px);
+  width: 9px;
+  height: 9px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  font-size: clamp(23px, 3vw, 37px);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+.timeline-item p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--paper);
+  margin: 10px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   13. Certifications Section
+   -------------------------------------------------------------------------- */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.certificate {
+  background: var(--paper);
+  border: 1px solid var(--muted);
+  padding: clamp(22px, 3vw, 38px);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.certificate-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.certificate h3 {
+  font-size: clamp(19px, 2vw, 27px);
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 1.2;
+  margin: 9px 0 12px;
+}
+
+.certificate p {
+  margin: 0 0 8px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.credential-link {
+  margin-top: auto;
+  padding-top: 20px;
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   14. Contact Section
+   -------------------------------------------------------------------------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Ribbon in contact section is more subdued */
+.contact .ribbon { top: -12%; right: -25%; opacity: .27; }
+
+.contact-inner { position: relative; z-index: 2; }
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: clamp(35px, 7vw, 110px);
+  align-items: end;
+}
+
+.contact-title {
+  max-width: 1100px;
+  margin: 20px 0 0;
+  font-size: clamp(65px, 12vw, 180px);
+}
+
+.contact-links {
+  display: grid;
+  gap: 14px;
+  max-width: 1000px;
+  padding-bottom: 10px;
+}
+
+.contact-link {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--white);
+  font-size: clamp(20px, 3vw, 39px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: 1.3;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  padding-bottom: 5px;
+}
+
+/* --------------------------------------------------------------------------
+   15. Footer
+   -------------------------------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--grey);
+  margin-top: 110px;
+  padding-block: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   16. Reveal Animation
+   Elements with .reveal fade + slide up when they enter the viewport.
+   The IntersectionObserver in main.js adds .visible to trigger this.
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.15s cubic-bezier(.22, 1, .36, 1),
+              transform 1.15s cubic-bezier(.22, 1, .36, 1);
+}
+
+.reveal.visible { opacity: 1; transform: none; }
+
+/* --------------------------------------------------------------------------
+   17. Keyframes
+   -------------------------------------------------------------------------- */
+
+/* Letters in the hero title rise up on load */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(55px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Ribbon brightness oscillation */
+@keyframes ribbonFloat {
+  from { filter: brightness(.85); }
+  to   { filter: brightness(1.18); }
+}
+
+/* Ribbon initial fade-in */
+@keyframes ribbonAppear { from { opacity: 0; } }
+
+/* --------------------------------------------------------------------------
+   18. Responsive Breakpoints
+   -------------------------------------------------------------------------- */
+
+/* Tablet / small desktop */
+@media (max-width: 760px) {
+  .site-width { width: min(100% - 36px, 1440px); }
+  .section-space { padding-block: 74px 80px; }
+  .nav-inner { padding-block: 12px; align-items: flex-start; }
+  .nav-links { gap: 5px 13px; }
+  .nav-links a { font-size: 9px; }
+  .hero { min-height: calc(79 * min(var(--vh, 1vh), 1vh)); }
+  .hero-title { font-size: clamp(86px, 25vw, 190px); }
+  .hero-bottom { margin-top: 35px; }
+  .ribbon { width: 155vw; right: -65%; top: 16%; }
+  .about-grid,
+  .skills-grid,
+  .certificate-grid,
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-title { margin-bottom: 35px; }
+  .project-card { grid-template-columns: 1fr; gap: 14px; }
+  .project-arrow { opacity: 1; transform: none; }
+  .corner-strip { gap: 7px; }
+  .corner-strip span { font-size: 8px; letter-spacing: .06em; }
+}
+
+/* Mobile */
+@media (max-width: 430px) {
+  .nav-inner { flex-direction: column; gap: 9px; }
+  .nav-links  { justify-content: flex-start; }
+  .hero-title { font-size: 25vw; }
+  .corner-strip { grid-template-columns: 1fr; }
+  .corner-strip span:nth-child(2),
+  .corner-strip span:nth-child(3) { text-align: left; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Reduced-Motion Override
+   Honours the OS / browser "prefer reduced motion" accessibility setting.
+   All animations and transitions are collapsed to near-zero duration,
+   and .reveal elements are shown immediately without the slide-up.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+

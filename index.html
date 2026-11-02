@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+
+  <!-- ── Page identity ── -->
+  <title>Srikrishnan TR — Aspiring Data Analyst</title>
+  <meta name="description" content="Portfolio of Srikrishnan TR — aspiring Data Analyst. B.Tech CSBS at Bannari Amman Institute of Technology. Projects, certifications, and contact.">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Srikrishnan TR — Aspiring Data Analyst">
+  <meta property="og:description" content="Portfolio of Srikrishnan TR — aspiring Data Analyst. Projects in financial reconciliation, AI voice agents, medical AI, and more.">
+  <meta property="og:url"         content="https://srikrishnan-tr.github.io">
+
+  <!-- ── Favicon: inline SVG "K" monogram, black circle, white letter ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23000'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='Montserrat,sans-serif' font-weight='800' font-size='18' fill='%23fff'%3EK%3C/text%3E%3C/svg%3E">
+
+  <!-- ── Fonts ── -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ── Stylesheet ── -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ── External libraries (pinned versions) ── -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════════════
+       NAVIGATION
+       ════════════════════════════════════════════════════════════════════ -->
+  <header id="site-nav" class="site-nav">
+    <nav class="site-width nav-inner" aria-label="Main navigation">
+      <a class="monogram" href="#home" aria-label="Srikrishnan TR, back to top">ST</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         HERO
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="home" class="hero dark-section" aria-labelledby="hero-title">
+
+      <!-- Decorative greyscale SVG ribbon -->
+      <div class="ribbon" aria-hidden="true">
+        <svg viewBox="0 0 1100 850" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ribbon-gradient" x1="90" y1="60" x2="1010" y2="790" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#505050"/>
+              <stop offset=".45" stop-color="#f0f0f0"/>
+              <stop offset=".72" stop-color="#a0a0a0"/>
+              <stop offset="1"   stop-color="#505050"/>
+            </linearGradient>
+            <linearGradient id="ribbon-shadow" x1="1000" y1="0" x2="100" y2="850" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f0f0f0"/>
+              <stop offset=".5" stop-color="#505050"/>
+              <stop offset="1"  stop-color="#a0a0a0"/>
+            </linearGradient>
+          </defs>
+          <path d="M-95 345C130 83 340 67 457 247C578 432 527 736 761 702C926 678 1022 421 1193 228"
+                stroke="url(#ribbon-shadow)" stroke-width="138" stroke-linecap="round"/>
+          <path d="M-90 301C146 41 343 112 474 287C620 481 459 685 721 717C943 744 1063 391 1209 247"
+                stroke="url(#ribbon-gradient)" stroke-width="101" stroke-linecap="round"/>
+          <path d="M-80 275C136 45 342 134 470 306C606 489 474 655 704 686C925 716 1073 383 1200 264"
+                stroke="#ffffff" stroke-opacity=".2" stroke-width="4"/>
+        </svg>
+      </div>
+
+      <div class="site-width hero-content">
+        <div class="hero-topline micro muted-on-dark">
+          <span>Personal Portfolio</span>
+          <span>2026</span>
+        </div>
+
+        <!-- Each letter is a separate <span> for the staggered riseIn animation -->
+        <h1 id="hero-title" class="display hero-title" aria-label="KRIS">
+          <span aria-hidden="true">K</span><span aria-hidden="true">R</span><span aria-hidden="true">I</span><span aria-hidden="true">S</span>
+        </h1>
+
+        <div class="hero-bottom">
+          <div>
+            <p class="hero-subline">ASPIRING DATA ANALYST</p>
+            <p class="micro muted-on-dark" style="margin-top:0.75rem">Srikrishnan TR</p>
+          </div>
+          <div class="button-row">
+            <a class="action-button button-solid" href="#projects">View Projects</a>
+            <a class="action-button button-outline" href="resume.pdf" download target="_blank" rel="noopener noreferrer">Download Resume</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three-column meta strip -->
+      <div class="site-width corner-strip micro muted-on-dark">
+        <span>Srikrishnan TR</span>
+        <span>Aspiring Data Analyst</span>
+        <span>Available 2026</span>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         ABOUT
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="about" class="light-section section-space" aria-labelledby="about-title">
+      <div class="site-width">
+        <p class="micro muted-on-light reveal">01 / About</p>
+        <h2 id="about-title" class="display section-title section-heading reveal">HELLO, I'M SRIKRISHNAN!</h2>
+
+        <div class="about-grid">
+          <!-- Left column: bio + details -->
+          <div class="about-intro reveal">
+            <p class="body-copy">
+              Computer Science and Business Systems student at Bannari Amman Institute of
+              Technology (CGPA 8.00) who turns messy data and enterprise workflows into
+              clear, actionable insight. Hands-on with Java, SQL, React, Node.js, ServiceNow
+              and Pega, plus QA testing and AI-driven apps.
+            </p>
+            <div class="about-detail">
+              <strong class="micro">Education</strong>
+              <p>B.Tech Computer Science and Business Systems, Bannari Amman Institute of Technology, 2023–2027</p>
+            </div>
+            <div class="about-detail">
+              <strong class="micro">Leadership</strong>
+              <p>Chief Advisor, Literary and Debating Society, BIT — guiding members, coordinating teams and events.</p>
+            </div>
+          </div>
+
+          <!-- Right column: stats + photo -->
+          <aside class="reveal" aria-label="At a glance">
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-number" data-counter="projects" aria-label="4 plus projects">4+</span>
+                <span class="micro">Projects</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-counter="internships">3</span>
+                <span class="micro">Internships</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-counter="certifications">3</span>
+                <span class="micro">Certifications</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number" data-counter="cgpa">8.00</span>
+                <span class="micro">CGPA</span>
+              </div>
+            </div>
+            <!-- Profile photo: place your photo at assets/img/profile.jpg -->
+            <div class="photo-slot profile-photo-slot" role="note">
+              <img
+                class="profile-photo"
+                src="assets/img/mee_BW.jpg"
+                alt="Srikrishnan TR"
+                loading="lazy"
+                onerror="this.style.display='none'">
+              <span class="micro muted-on-light">Srikrishnan TR</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         SKILLS
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="skills" class="dark-section section-space" aria-labelledby="skills-title">
+      <div class="site-width">
+        <p class="micro muted-on-dark reveal">02 / Skills</p>
+        <h2 id="skills-title" class="display section-title section-heading reveal">WHAT I DO.</h2>
+
+        <div class="skills-grid">
+          <div class="skill-group reveal">
+            <h3>Data &amp; Analytics</h3>
+            <div class="tags">
+              <span class="tag">Data Analysis</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Python</span>
+              <span class="tag">Excel Dashboards</span>
+              <span class="tag">Financial Reconciliation</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Enterprise Platforms</h3>
+            <div class="tags">
+              <span class="tag">ServiceNow (CSA)</span>
+              <span class="tag">Pega</span>
+              <span class="tag">Workflows</span>
+              <span class="tag">REST API Management</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">React.js</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Backend</h3>
+            <div class="tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">MongoDB</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Languages</h3>
+            <div class="tags">
+              <span class="tag">Java (Advanced)</span>
+              <span class="tag">Python</span>
+              <span class="tag">C</span>
+              <span class="tag">SQL</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Software QA</h3>
+            <div class="tags">
+              <span class="tag">Manual Testing</span>
+              <span class="tag">Selenium</span>
+              <span class="tag">Bug Hunting</span>
+              <span class="tag">Postman</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Tools</h3>
+            <div class="tags">
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+              <span class="tag">VS Code</span>
+              <span class="tag">Postman</span>
+            </div>
+          </div>
+
+          <div class="skill-group reveal">
+            <h3>Full-Stack Development</h3>
+            <div class="tags">
+              <span class="tag">Full-Stack Development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         PROJECTS
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="projects" class="white-section section-space" aria-labelledby="projects-title">
+      <div class="site-width">
+        <p class="micro muted-on-light reveal">03 / Projects</p>
+        <h2 id="projects-title" class="display section-title section-heading reveal">SELECTED WORK.</h2>
+
+        <div class="project-list">
+
+          <!-- Project 01 -->
+          <article class="project-card reveal">
+            <span class="project-number">01 /</span>
+            <div>
+              <h3 class="project-title">Pg_Recon: Payment Gateway Reconciliation &amp; Financial Analysis</h3>
+              <p class="project-desc">
+                End-to-end financial data pipeline that matches payment gateway transactions
+                against bank statements, reconciles order logs, audits MDR rate cards, and
+                produces an executive dashboard and CFO summary.
+              </p>
+              <div class="tags">
+                <span class="tag">Excel</span>
+                <span class="tag">Data Cleaning</span>
+                <span class="tag">Reconciliation</span>
+                <span class="tag">Dashboards</span>
+                <span class="tag">Financial Analysis</span>
+              </div>
+              <div class="project-actions">
+                <a data-link="project1Github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card reveal">
+            <span class="project-number">02 /</span>
+            <div>
+              <h3 class="project-title">AI Voice Interview Agent</h3>
+              <p class="project-desc">
+                AI-powered mock interview platform with interactive Vapi voice agents,
+                real-time feedback and dynamic question generation using Google Gemini.
+              </p>
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">Vapi</span>
+                <span class="tag">Gemini</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Tailwind CSS</span>
+              </div>
+              <div class="project-actions">
+                <a data-link="project2Github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <!-- Live Demo shown only when project2Demo URL is set in main.js -->
+                <a data-link="project2Demo" target="_blank" rel="noopener noreferrer" hidden>Live Demo</a>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-card reveal">
+            <span class="project-number">03 /</span>
+            <div>
+              <h3 class="project-title">MediAuth AI</h3>
+              <p class="project-desc">
+                AI-powered medical pre-authorization platform connecting doctors, patients,
+                insurers and admins in one workflow, with Gemini-based claim analysis,
+                confidence scores and role-based access.
+              </p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">Express</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Gemini</span>
+              </div>
+              <div class="project-actions">
+                <a data-link="project3Github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04 -->
+          <article class="project-card reveal">
+            <span class="project-number">04 /</span>
+            <div>
+              <h3 class="project-title">BestShop (Best Shop in Sathyamangalam)</h3>
+              <p class="project-desc">
+                Full-stack e-commerce app for local businesses with product catalog management,
+                user data handling and order transactions.
+              </p>
+              <div class="tags">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">CSS</span>
+                <span class="tag">MySQL</span>
+              </div>
+              <div class="project-actions">
+                <a data-link="project4Github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 05 -->
+          <article class="project-card reveal">
+            <span class="project-number">05 /</span>
+            <div>
+              <h3 class="project-title">Academic Green KPI Dashboard</h3>
+              <p class="project-desc">
+                Data-driven system that monitors, analyzes and visualizes environmental
+                performance metrics for sustainability decisions.
+              </p>
+              <div class="tags">
+                <span class="tag">Data Visualization</span>
+                <span class="tag">KPI</span>
+                <span class="tag">Analytics</span>
+              </div>
+              <div class="project-actions">
+                <a data-link="project5Github" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span class="project-arrow" aria-hidden="true">↗</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         EXPERIENCE
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="experience" class="dark-section section-space" aria-labelledby="experience-title">
+      <div class="site-width">
+        <p class="micro muted-on-dark reveal">04 / Experience</p>
+        <h2 id="experience-title" class="display section-title section-heading reveal">THE JOURNEY.</h2>
+
+        <div class="timeline">
+
+          <article class="timeline-item reveal">
+            <span class="micro muted-on-dark">Certificate issued 02 Nov 2026</span>
+            <h3>Software QA Tester (Bug Hunter) Intern, Skill Nexis</h3>
+            <p>
+              Completed full manual testing lifecycle for web applications, creating RTM
+              mappings and 30+ test cases across login and e-commerce workflows. Executed
+              functional, usability, regression and non-functional testing, documenting
+              reproducible defects with screenshots.
+            </p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="micro muted-on-dark">4 Aug 2026 to 3 Sep 2026</span>
+            <h3>National Internship Program, Pegasystems Worldwide India Pvt Ltd (with SmartBridge)</h3>
+            <p>
+              Completed an industry-integrated Pegasystems and SmartBridge internship with
+              hands-on exposure to workflow automation, Pega low-code application development
+              and real-world project implementation.
+            </p>
+            <p>Certificate ID: PEGA-SW-NIP-2026-177</p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="micro muted-on-dark">Leadership</span>
+            <h3>Chief Advisor, Literary and Debating Society, BIT</h3>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         CERTIFICATIONS
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="certifications" class="white-section section-space" aria-labelledby="certifications-title">
+      <div class="site-width">
+        <p class="micro muted-on-light reveal">05 / Certifications</p>
+        <h2 id="certifications-title" class="display section-title section-heading reveal">CREDENTIALS.</h2>
+
+        <div class="certificate-grid">
+
+          <article class="certificate reveal">
+            <span class="certificate-icon" aria-hidden="true">✳</span>
+            <span class="micro muted-on-light">ServiceNow</span>
+            <h3>ServiceNow Certified System Administrator (CSA)</h3>
+            <p>Issued 25 Jul 2026</p>
+          </article>
+
+          <article class="certificate reveal">
+            <span class="certificate-icon" aria-hidden="true">✳</span>
+            <span class="micro muted-on-light">Salesforce</span>
+            <h3>Salesforce Certified Agentforce Specialist</h3>
+            <p>Issued 31 Dec 2025</p>
+            <p>Credential ID 7325735</p>
+            <a data-link="salesforceVerify" class="credential-link" target="_blank" rel="noopener noreferrer">View Credential ↗</a>
+          </article>
+
+          <article class="certificate reveal">
+            <span class="certificate-icon" aria-hidden="true">✳</span>
+            <span class="micro muted-on-light">Pegasystems and SmartBridge</span>
+            <h3>National Internship Program completion</h3>
+            <p>Issued 22 Sep 2026</p>
+            <p>ID PEGA-SW-NIP-2026-177</p>
+          </article>
+
+          <article class="certificate reveal">
+            <span class="certificate-icon" aria-hidden="true">✳</span>
+            <span class="micro muted-on-light">Skill Nexis</span>
+            <h3>Software QA Tester (Bug Hunter) internship completion</h3>
+            <p>Issued 02 Nov 2026</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════════
+         CONTACT
+         ══════════════════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact dark-section section-space" aria-labelledby="contact-title">
+
+      <!-- Decorative ribbon (dimmer variant) -->
+      <div class="ribbon" aria-hidden="true">
+        <svg viewBox="0 0 1100 850" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="contact-gradient" x1="0" y1="0" x2="1100" y2="850" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#505050"/>
+              <stop offset=".48" stop-color="#f0f0f0"/>
+              <stop offset="1"   stop-color="#a0a0a0"/>
+            </linearGradient>
+          </defs>
+          <path d="M-90 310C180 40 371 122 493 312C609 494 486 655 716 705C941 754 1032 413 1200 255"
+                stroke="url(#contact-gradient)" stroke-width="120" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="site-width contact-inner">
+        <p class="micro muted-on-dark reveal">06 / Contact</p>
+        <div class="contact-layout">
+          <h2 id="contact-title" class="display contact-title reveal">LET'S WORK TOGETHER!</h2>
+          <div class="contact-links reveal">
+            <a data-link="email"    class="contact-link">srikrishnan310@gmail.com</a>
+            <a data-link="linkedin" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a data-link="github"   class="contact-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+
+        <footer class="site-footer micro muted-on-dark">
+          <span>© 2026 Srikrishnan TR</span>
+          <span>Aspiring Data Analyst</span>
+          <span>Available 2026</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Main JS (loaded last so DOM is ready) ── -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
